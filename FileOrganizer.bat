@@ -13,7 +13,9 @@ for %%D in (Music Video Documents Compressed Programs Others) do (
 
 for %%F in (*) do (
     if /I not "%%~nxF"=="%SELF%" (
-        call :OrganizeFile "%%~fF" "%%~xF"
+        set "FILE=%%~fF"
+        set "EXT=%%~xF"
+        call :OrganizeFile
     )
 )
 
@@ -23,8 +25,6 @@ pause
 exit /b
 
 :OrganizeFile
-set "FILE=%~1"
-set "EXT=%~2"
 set "DEST="
 
 if /I "%EXT%"==".pdf" set "DEST=Documents"
@@ -45,6 +45,7 @@ if /I "%EXT%"==".xml" set "DEST=Documents"
 if /I "%EXT%"==".yaml" set "DEST=Documents"
 if /I "%EXT%"==".yml" set "DEST=Documents"
 if /I "%EXT%"==".csv" set "DEST=Documents"
+if /I "%EXT%"==".ris" set "DEST=Documents"
 
 if /I "%EXT%"==".mp3" set "DEST=Music"
 if /I "%EXT%"==".wav" set "DEST=Music"
@@ -94,5 +95,9 @@ if not defined DEST set "DEST=Others"
 
 if not exist "%DEST%" mkdir "%DEST%"
 move /Y "%FILE%" "%DEST%\" >nul
-echo Moved file to %DEST%
+if errorlevel 1 (
+    echo Failed to move "%FILE%"
+) else (
+    echo Moved file to %DEST%
+)
 exit /b

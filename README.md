@@ -40,7 +40,7 @@ Video/
 Documents/
   pdf doc docx xls xlsx ppt pptx
   txt rtf md odt epub mobi
-  json xml yaml yml csv
+  json xml yaml yml csv ris
 
 Compressed/
   zip rar 7z tar gz bz2 xz iso cab arj
