@@ -35,7 +35,7 @@ Music/
   mp3 wav flac aac m4a ogg opus wma mid midi
 
 Video/
-  mp4 mkv avi mov wmv webm flv m4v 3gp mpg mpeg ts
+  mp4 mkv avi mov wmv webm flv m4v 3gp mpg mpeg
 
 Documents/
   pdf doc docx xls xlsx ppt pptx
@@ -49,7 +49,7 @@ Programs/
   exe msi bat cmd ps1 appx appxbundle apk jar
 
 Others/
-  images, web files, torrents, fonts, and everything else
+  ts, images, web files, torrents, fonts, and everything else
 ```
 
 ---

@@ -68,7 +68,6 @@ if /I "%EXT%"==".m4v" set "DEST=Video"
 if /I "%EXT%"==".3gp" set "DEST=Video"
 if /I "%EXT%"==".mpg" set "DEST=Video"
 if /I "%EXT%"==".mpeg" set "DEST=Video"
-if /I "%EXT%"==".ts" set "DEST=Video"
 
 if /I "%EXT%"==".zip" set "DEST=Compressed"
 if /I "%EXT%"==".rar" set "DEST=Compressed"
