@@ -14,6 +14,8 @@ for %%D in (Music Video Documents Compressed Programs Others) do (
 for %%F in (*) do (
     if /I not "%%~nxF"=="%SELF%" (
         set "FILE=%%~fF"
+        set "FILE_NAME=%%~nxF"
+        set "FILE_BASE=%%~nF"
         set "EXT=%%~xF"
         call :OrganizeFile
     )
@@ -94,10 +96,24 @@ if /I "%EXT%"==".jar" set "DEST=Programs"
 if not defined DEST set "DEST=Others"
 
 if not exist "%DEST%" mkdir "%DEST%"
-move /Y "%FILE%" "%DEST%\" >nul
+set "TARGET=%DEST%\%FILE_NAME%"
+if exist "%TARGET%" call :FindAvailableTarget
+
+move /Y "%FILE%" "%TARGET%" >nul
 if errorlevel 1 (
-    echo Failed to move "%FILE%"
+    echo Failed to move file
 ) else (
     echo Moved file to %DEST%
+)
+exit /b
+
+:FindAvailableTarget
+set "COUNT=1"
+
+:FindAvailableTargetLoop
+set "TARGET=%DEST%\%FILE_BASE%_%COUNT%%EXT%"
+if exist "%TARGET%" (
+    set /A COUNT+=1
+    goto :FindAvailableTargetLoop
 )
 exit /b

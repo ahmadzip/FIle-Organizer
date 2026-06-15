@@ -10,6 +10,7 @@ _Disclaimer: If you read the code and wonder "why is it done this way?", the ans
 
 - **Auto Folder Creation:** Creates category folders automatically if they don't exist.
 - **Fixed Categories:** Only creates `Music`, `Video`, `Documents`, `Compressed`, `Programs`, and `Others`.
+- **Duplicate-Safe:** If a destination filename already exists, the moved file gets `_1`, `_2`, and so on.
 - **Move, Not Copy:** Files are cut and moved — no duplicates created.
 - **Self-Aware:** The `.bat` script will never move itself into `Programs`.
 - **Safe for `!` Filenames:** The script avoids delayed expansion, so `!` in filenames is handled correctly.
